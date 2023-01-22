@@ -12,8 +12,15 @@ def add_number(digit):
     calc.insert(0,value + digit)
 def add_digite(digit):
     return tk.Button(text=digit,bd = 5,font=('Arial',13), command=lambda:add_number(digit))
+def add_operation(operation):
+    value = calc.get()
+    if value[-1] in '+-*/':
+        value = value[:-1]
+    calc.delete(0,tk.END)
+    calc.insert(0,value + operation)
 def make_operation(operation):
-    return tk.Button(text=operation, bd=5, font=('Arial', 13), fg='red',command=lambda: add_number(operation))
+    return tk.Button(text=operation, bd=5, font=('Arial', 13), fg='red',command=lambda: add_operation(operation))
+
 
 
 
